@@ -16,7 +16,7 @@ module Yxt
     attr_accessor :base_url
   end
 
-  # Make an HTTP request with the given verb to easemob server
+  # Make an HTTP request with the given verb to YXT API server
   # @param resource [String]
   # @option options [Hash]
   # @return [HTTP::Response]
