@@ -7,6 +7,8 @@ require 'yxt-api/user'
 require 'yxt-api/version'
 
 module Yxt
+  class YxtAPI_Error < RuntimeError; end
+
   class << self
     attr_accessor :apikey
     attr_accessor :secretkey
@@ -24,6 +26,19 @@ module Yxt
     json_params = with_signature(options)
 
     res = @http.post("#{base_url}/#{resource}", json: json_params)
+
+    case res.code
+    when 40101
+      raise YxtAPI_Error, '授权码签名无效！'
+    when 50001
+      raise YxtAPI_Error, '未授权该API！'
+    when 50002
+      raise YxtAPI_Error, 'API 功能未授权！'
+    when 60100
+      raise YxtAPI_Error, '服务内部错误！'
+    when 60101
+      raise YxtAPI_Error, '业务处理错误！'
+    end
 
     res
   end
