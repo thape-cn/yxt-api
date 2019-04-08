@@ -42,3 +42,4 @@ The gem is available as open source under the terms of the [MIT License](http://
 
 
 [version-badge]: https://badge.fury.io/rb/yxt-api.svg
+[rubygems]: https://rubygems.org/gems/yxt-api
