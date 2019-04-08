@@ -2,6 +2,7 @@ require 'http'
 require 'json'
 require 'digest'
 require 'yxt-api/organization_unit'
+require 'yxt-api/position'
 require 'yxt-api/user'
 require 'yxt-api/version'
 
