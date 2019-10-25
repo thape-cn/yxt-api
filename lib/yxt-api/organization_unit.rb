@@ -1,6 +1,6 @@
 module Yxt
-  def self.sync_ous(ous_hash, isBaseInfo: false)
-    request 'el/sync/ous', isBaseInfo: isBaseInfo, ouInfo: ous_hash.to_json.to_s
+  def self.sync_ous(ous_hash)
+    request 'v1/udp/sy/ous', datas: ous_hash
   end
 
   def self.delete_ous(ou_code_or_third_system_ids)
