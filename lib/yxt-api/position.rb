@@ -1,6 +1,6 @@
 module Yxt
   def self.sync_position(position_hash)
-    request 'el/sync/position', positionInfo: position_hash.to_json.to_s
+    request 'v1/udp/sy/position', datas: position_hash
   end
 
   def self.sync_position_for_no_pno(position_hash)
