@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Yxt
   def self.sync_position(position_hash)
     request 'v1/udp/sy/position', datas: position_hash

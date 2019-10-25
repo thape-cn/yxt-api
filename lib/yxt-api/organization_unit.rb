@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Yxt
   def self.sync_ous(ous_hash)
     request 'v1/udp/sy/ous', datas: ous_hash

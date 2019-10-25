@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Yxt
   def self.sync_users(users_hash, islink: 1, is_send_notice: 0)
     request 'v1/udp/sy/users', islink: islink, isSendNotice: is_send_notice,
