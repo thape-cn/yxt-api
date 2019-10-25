@@ -1,21 +1,15 @@
 module Yxt
-  def self.sync_users(users_hash, islink: true)
-    request 'el/sync/users', islink: islink, users: users_hash.to_json.to_s
+  def self.sync_users(users_hash, islink: true, is_send_notice: false)
+    request 'v1/udp/sy/users', islink: islink, isSendNotice: is_send_notice,
+                               datas: users_hash
   end
 
-  def self.disable_users(user_names, isClearEmailAndMobile: false)
-    request 'el/sync/disabledusers', userNames: user_names.to_json.to_s, isClearEmailAndMobile: isClearEmailAndMobile
+  def self.disable_users(user_names, is_clear_email_and_mobile: 0)
+    request 'v1/udp/sy/disabledusers', isClearEmailAndMobile: is_clear_email_and_mobile,
+                                       datas: user_names
   end
 
   def self.enable_users(user_names)
-    request 'el/sync/enabledusers', userNames: user_names.to_json.to_s
-  end
-
-  def self.delete_users(user_names)
-    request 'el/sync/deletedusers', userNames: user_names.to_json.to_s
-  end
-
-  def self.check_user(user_name)
-    request 'el/sync/cku', userNames: user_name
+    request 'v1/udp/sy/enabledusers', datas: user_names
   end
 end
