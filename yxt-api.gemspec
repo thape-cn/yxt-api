@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.cert_chain  = ['certs/Eric-Guo.pem']
   spec.signing_key = File.expand_path('~/.ssh/gem-private_key.pem') if $PROGRAM_NAME.end_with?('gem')
 
-  spec.add_runtime_dependency 'http', '>= 2.0.3', '< 5'
+  spec.add_runtime_dependency 'http', '>= 2.0.3', '< 6'
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'rspec'
 end
