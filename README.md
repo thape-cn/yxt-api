@@ -3,6 +3,10 @@ yxt-api [![Gem Version][version-badge]][rubygems]
 
 An unofficial 云学堂 http://www.yxt.com/ API wrap gem.
 
+## Official document
+
+https://open.yunxuetang.cn/#/document?&id=1641790366267643906
+
 ## Installation
 
 Add this line to your application's Gemfile:
