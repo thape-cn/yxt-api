@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.description   = 'Helping rubyist integration with YXT API easier.'
   spec.homepage      = 'https://github.com/thape-cn/yxt-api'
   spec.license       = 'MIT'
-  spec.required_ruby_version = '>= 2.4'
+  spec.required_ruby_version = '>= 2.7'
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.cert_chain  = ['certs/Eric-Guo.pem']
   spec.signing_key = File.expand_path('~/.ssh/gem-private_key.pem') if $PROGRAM_NAME.end_with?('gem')
 
-  spec.add_runtime_dependency 'http', '>= 2.0.3', '< 6'
+  spec.add_runtime_dependency 'httpx', '= 1.7.2'
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'rspec'
 end
