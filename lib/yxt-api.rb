@@ -52,7 +52,8 @@ module Yxt
       @http_origin = origin
     end
 
-    res = @http.post("/#{resource}", json: options.merge(accessToken: access_token))
+    payload = options || {}
+    res = @http.post("/#{resource}", headers: { 'Authorization' => access_token }, json: payload)
     attach_response_compatibility!(res)
     res
   end
