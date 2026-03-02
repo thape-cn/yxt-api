@@ -30,10 +30,14 @@ Or install it yourself as:
 Create `config/initializers/yxt-api.rb` and put following configurations into your Rails project.
 
 ```ruby
-Yxt.apikey     = 'your_api_key'
-Yxt.secretkey  = 'your_secret_key'
-Yxt.base_url  = 'http://api.yunxuetang.com.cn' # notice no / at end
+Yxt.app_id          = 'your_app_id'
+Yxt.app_secret      = 'your_app_secret'
+Yxt.base_url        = 'https://openapi.yunxuetang.cn' # notice no / at end
+Yxt.token_url       = 'https://openapi.yunxuetang.cn' # optional, default same as base_url
+Yxt.token_cache_file = '/tmp/yxt-access-token-your_app_id.json' # optional
 ```
+
+`Yxt.request` will automatically fetch `accessToken` from `/token`, cache it in a local temp file, and refresh it when expired.
 
 ## Contributing
 
