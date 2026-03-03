@@ -13,6 +13,7 @@ require 'yxt-api/version'
 
 module Yxt
   class YxtAPI_Error < RuntimeError; end
+  DEFAULT_API_ORIGIN_URL = 'https://openapi.yunxuetang.cn'
 
   class << self
     attr_accessor :apikey
@@ -20,8 +21,8 @@ module Yxt
 
     attr_accessor :app_id
     attr_accessor :app_secret
-    attr_accessor :base_url
-    attr_accessor :token_url
+    attr_writer :api_origin_url
+    attr_writer :token_origin_url
     attr_accessor :token_cache_file
   end
 
@@ -46,7 +47,7 @@ module Yxt
   private_class_method
 
   def self.perform_api_request(resource, options, access_token)
-    origin = api_origin
+    origin = api_origin_url
     if @http.nil? || @http_origin != origin
       @http = HTTPX.with(origin: origin)
       @http_origin = origin
@@ -177,18 +178,19 @@ module Yxt
     app_secret || secretkey
   end
 
-  def self.api_origin
-    base_url || 'https://openapi.yunxuetang.cn'
+  def self.api_origin_url
+    @api_origin_url || DEFAULT_API_ORIGIN_URL
   end
 
-  def self.token_origin
-    token_url || api_origin
+  def self.token_origin_url
+    @token_origin_url || api_origin_url
   end
 
   def self.token_http
-    if @token_http.nil? || @token_http_origin != token_origin
-      @token_http = HTTPX.with(origin: token_origin)
-      @token_http_origin = token_origin
+    origin = token_origin_url
+    if @token_http.nil? || @token_http_origin != origin
+      @token_http = HTTPX.with(origin: origin)
+      @token_http_origin = origin
     end
 
     @token_http

@@ -32,8 +32,8 @@ Create `config/initializers/yxt-api.rb` and put following configurations into yo
 ```ruby
 Yxt.app_id          = 'your_app_id'
 Yxt.app_secret      = 'your_app_secret'
-Yxt.base_url        = 'https://openapi.yunxuetang.cn' # notice no / at end
-Yxt.token_url       = 'https://openapi.yunxuetang.cn' # optional, default same as base_url
+Yxt.api_origin_url  = 'https://openapi.yunxuetang.cn' # notice no / at end
+Yxt.token_origin_url = 'https://openapi.yunxuetang.cn' # optional, default same as api_origin_url
 Yxt.token_cache_file = '/tmp/yxt-access-token-your_app_id.json' # optional
 ```
 
