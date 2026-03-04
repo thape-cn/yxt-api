@@ -1,11 +1,8 @@
 # frozen_string_literal: true
 
 module Yxt
-  def self.insert_positions(position_hash)
-    request 'v1/udp/sy/position', datas: position_hash
-  end
-
-  def self.update_position_info(position_no, position_name)
-    request 'v1/udp/sy/updatepositioninfo', positionNo: position_no, positionName: position_name
+  # https://open.yunxuetang.cn/#/document?id=1643934601388531714
+  def self.positions_sync(position_hash)
+    request 'v1/udp/public/positions/sync', datas: position_hash
   end
 end
