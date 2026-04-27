@@ -9,6 +9,7 @@ require 'yxt-api/department'
 require 'yxt-api/position'
 require 'yxt-api/position_catalog'
 require 'yxt-api/position_grade'
+require 'yxt-api/open_user'
 require 'yxt-api/user'
 require 'yxt-api/version'
 
